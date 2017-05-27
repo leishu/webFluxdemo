@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.core.publisher.MonoSink;
 
@@ -25,7 +26,7 @@ public class CustomerController {
     private CustomerService serv;
 
     @GetMapping("/customer/{id}")
-    Mono<Customer> findById(@PathVariable Long id) {
+    Mono<Customer> findById(@PathVariable Integer id) {
         return Mono.just(new Customer());
     }
 
@@ -34,4 +35,8 @@ public class CustomerController {
         return serv.create(customer);
     }
 
+    @GetMapping("/customers")
+    Flux<Customer> findAll() {
+        return serv.findAll();
+    }
 }

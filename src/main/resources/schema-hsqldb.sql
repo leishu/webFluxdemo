@@ -7,3 +7,6 @@ CREATE TABLE customer (
 );
 
 insert into customer (name, status) values ('github', 0);
+insert into customer (name, status) values ('linux', 0);
+insert into customer (name, status) values ('nginx', 0);
+insert into customer (name, status) values ('spring', 0);

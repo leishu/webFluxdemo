@@ -7,9 +7,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.core.publisher.MonoSink;
 
@@ -26,9 +26,9 @@ public class CustomerService {
     @Autowired
     private CustomerRepository repository;
 
-////    public List<Customer> findAll() {
-////        return repository.findAll();
-////    }
+    public Flux<Customer> findAll() {
+        return Flux.fromIterable(repository.findAll());
+    }
 //
 //    public List<Customer> findByName(String name) {
 //        return repository.findByName(name);
