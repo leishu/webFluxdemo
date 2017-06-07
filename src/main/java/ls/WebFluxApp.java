@@ -52,8 +52,8 @@ public class WebFluxApp  {
     @Bean
     public CommandLineRunner createChatRooms(ChatRoomRepository repository) {
         Flux<ChatRoom> rooms = Flux.just(
-                new ChatRoom("Java"),
-                new ChatRoom("Spring5"));
+                new ChatRoom("Java", "Java room."),
+                new ChatRoom("Spring5", "Spring room."));
 
         return args -> {
             repository.deleteAll()

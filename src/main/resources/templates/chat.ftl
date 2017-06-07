@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" >
+<html  >
 <head>
-    <title th:text="${title}">Title</title>
+    <title >${title}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"
-          href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
 </head>
 <body>
 <div class="container">
@@ -28,7 +27,9 @@
                 <div class="form-group">
                     <label for="roomName">聊天室</label>
                     <select class="form-control" id="roomName">
-                        <option th:each="room:${rooms}" th:value="${room.room}" th:text="${room.room}"></option>
+                        <#list rooms as room>
+                            <option >${room.room}</option>
+                        </#list>
                     </select>
                 </div>
                 <div class="form-group">

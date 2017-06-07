@@ -11,11 +11,14 @@ public class ChatRoom {
     @Id
     String room;
 
+    String desc;
+
     public ChatRoom() {
     }
 
-    public ChatRoom(String room) {
+    public ChatRoom(String room, String desc) {
         this.room = room;
+        this.desc = desc;
     }
 
     public String getRoom() {
@@ -24,5 +27,13 @@ public class ChatRoom {
 
     public void setRoom(String room) {
         this.room = room;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 }

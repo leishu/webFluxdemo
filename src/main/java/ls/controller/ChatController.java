@@ -28,7 +28,7 @@ public class ChatController {
     @GetMapping("/chat")
     public String home(Model model) {
         model.addAttribute("title", "Chat Room");
-        model.addAttribute("rooms", chatRoomRepository.findAll().collectList().block());
+        model.addAttribute("rooms", chatRoomRepository.findAll());
         return "chat";
     }
 

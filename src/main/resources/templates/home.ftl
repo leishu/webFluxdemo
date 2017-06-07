@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" >
+<html >
 <head>
-    <title th:text="${title}">Title</title>
+    <title >${title}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"
-          href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
 </head>
 <body>
 <div class="container">
@@ -22,15 +21,15 @@
         </div><!-- /.container-fluid -->
     </nav>
 
-    <h3 th:text="${title}">Title</h3>
-    <div th:text="${message}">hello</div>
+    <h3 >${title}</h3>
+    <div >${message}</div>
     <br/>
     <ul class="list-group">
         <li class="list-group-item list-group-item-success">当前时间(1秒刷新)：
-            <span id="now-1" th:text="${#dates.format(date, 'yyyy-MM-dd HH:mm:ss')}"></span>
+            <span id="now-1" >${date?string("yyyy-MM-dd HH:mm:ss")}</span>
         </li>
         <li class="list-group-item list-group-item-info">当前时间(5秒刷新)：
-            <span id="now-5" th:text="${#dates.format(date, 'yyyy-MM-dd HH:mm:ss')}"></span>
+            <span id="now-5" >${date?string("yyyy-MM-dd HH:mm:ss")}</span>
         </li>
     </ul>
 
