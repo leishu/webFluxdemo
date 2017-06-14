@@ -35,7 +35,7 @@
 
 </div>
 </body>
-<script data-th-inline="javascript">
+<script type="text/javascript">
 
     function interval1() {
         this.source = null;

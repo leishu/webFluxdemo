@@ -54,14 +54,19 @@
     </div>
 </div>
 </body>
-<script src="/js/jquery-3.2.1.min.js" />
-<script data-th-inline="javascript">
-    $('enterRoom').click(function() {
-        var user = $('#chatUser').val();
-        var room = $('#roomName').sel();
-        $.post("/enterRoom", {user: user, room: room}, function(result) {
+<script src="/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+    $().ready(function(){
+        $('#enterRoom').click(function() {
+            var user = $('#chatUser').val();
+            var room = $('#roomName').val();
+            var url = "/enterRoom?user=" + user + "&room=" + room;
+            $.post(url, function(result) {
 
+            });
         });
+
     });
+
 </script>
 </html>

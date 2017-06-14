@@ -9,3 +9,7 @@ spring webflux+spring boot
 2、增加findAll功能
 <br />
 3、使用Server-Sent Events技术，页面定时更新服务器时间
+<br />
+4、使用reactive方法，实现RedisRepository。
+目前只实现了RedisSet注解。
+支持对象json序列化以后保存set元素。

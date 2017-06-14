@@ -1,5 +1,6 @@
 package ls.controller;
 
+import ls.entity.output.LoginResult;
 import ls.repository.ChatRoomRepository;
 import ls.service.ChatService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +19,6 @@ public class ChatController {
     private ChatService service;
     @Autowired
     private ChatRoomRepository chatRoomRepository;
-/*
-    @Autowired
-    public ChatController(ChatService service, ChatRoomRepository chatRoomRepository) {
-        this.service = service;
-        this.chatRoomRepository = chatRoomRepository;
-    }*/
 
     @GetMapping("/chat")
     public String home(Model model) {
@@ -33,7 +28,10 @@ public class ChatController {
     }
 
     @PostMapping("/enterRoom")
-    public Mono<Integer> enterRoom(String user, String room) {
-        return service.enter();
+    public String enterRoom(String user, String room, final Model model) {
+        Mono<LoginResult> lr = service.login(room, user);
+        model.addAttribute("lr", lr);
+
+        return "enterRoom";
     }
 }

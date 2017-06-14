@@ -13,7 +13,6 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.core.publisher.MonoSink;
 
-import java.util.List;
 import java.util.function.Consumer;
 
 /**
@@ -29,15 +28,7 @@ public class CustomerService {
     public Flux<Customer> findAll() {
         return Flux.fromIterable(repository.findAll());
     }
-//
-//    public List<Customer> findByName(String name) {
-//        return repository.findByName(name);
-//    }
-////
-////    public Customer findOne(Long id) {
-////        return repository.getOne(id);
-////    }
-//
+
     @Transactional
     public Mono<Integer> create(Customer customer) {
         logger.info("create customer {} start.", customer.getName());
@@ -61,14 +52,5 @@ public class CustomerService {
         return Mono.create(statusEmitter);
 
     }
-//
-//    @Transactional
-//    public Mono<Customer> update(Customer customer) {
-//        return repository.save(customer);
-//    }
-//
-//    @Transactional
-//    public void delete(Long id) {
-//        repository.deleteById(id);
-//    }
+
 }
